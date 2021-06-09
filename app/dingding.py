@@ -21,12 +21,13 @@ class Message:
         '''
         try:
             res = BinanceAPI(api_key,api_secret).limit_future_order("SELL",market, quantity,"LONG", price)
-            if res['orderId']:
-                buy_info = "报警：币种为：{cointype}。做多卖单价为：{price}。卖单量为：{num}.".format(cointype=market,price=price,num=quantity)
-                self.dingding_warn(buy_info)
-                return res
+            print(res)
+            # if res['orderId']:
+            #     buy_info = "报警：币种为：{cointype}。做多卖单价为：{price}。卖单量为：{num}.".format(cointype=market,price=price,num=quantity)
+            #     self.dingding_warn(buy_info)
+            return res
         except BaseException as e:
-            error_info = "报警：币种为：{cointype},做多多单失败.api返回内容为:{reject}".format(cointype=market,reject=res['msg'])
+            error_info = "报警：币种为：{cointype},做多多单失败.api返回内容为:{reject}".format(cointype=market,reject='?')
             self.dingding_warn(error_info+str(res))
             return res
 
@@ -40,12 +41,13 @@ class Message:
         '''
         try:
             res = BinanceAPI(api_key, api_secret).market_future_order("BUY", market, quantity, "LONG")
-            if res['orderId']:
-                buy_info = "报警：币种为：{cointype}。开多买单量为：{num}".format(cointype=market,num=quantity)
-                self.dingding_warn(buy_info)
-                return res
+            print(res)
+            # if res['orderId']:
+            #     buy_info = "报警：币种为：{cointype}。开多买单量为：{num}".format(cointype=market,num=quantity)
+            #     self.dingding_warn(buy_info)
+            return res
         except BaseException as e:
-            error_info = "报警：币种为：{cointype},开多多单失败.api返回内容为:{reject}".format(cointype=market, reject=res['msg'])
+            error_info = "报警：币种为：{cointype},开多多单失败.api返回内容为:{reject}".format(cointype=market, reject='?')
 
     def do_buy_market_msg(self, market, quantity,profit_usdt=0):
         '''
@@ -57,12 +59,13 @@ class Message:
         '''
         try:
             res = BinanceAPI(api_key, api_secret).market_future_order("SELL", market, quantity, "LONG")
-            if res['orderId']:
-                buy_info = "报警：币种为：{cointype}。做多卖单量为：{num}.".format(cointype=market,num=quantity)
-                self.dingding_warn(buy_info)
-                return res
+            print(res)
+            # if res['orderId']:
+            #     buy_info = "报警：币种为：{cointype}。开多买单量为：{num}".format(cointype=market,num=quantity)
+            #     self.dingding_warn(buy_info)
+            return res
         except BaseException as e:
-            error_info = "报警：币种为：{cointype},开多多单失败.api返回内容为:{reject}".format(cointype=market, reject=res['msg'])
+            error_info = "报警：币种为：{cointype},开多多单失败.api返回内容为:{reject}".format(cointype=market, reject='?')
 
     def open_sell_market_msg(self, market, quantity):
         '''
@@ -74,12 +77,13 @@ class Message:
         '''
         try:
             res = BinanceAPI(api_key, api_secret).market_future_order("SELL", market, quantity, "SHORT")
-            if res['orderId']:
-                buy_info = "报警：币种为：{cointype}。网格开空买单量为：{num}".format(cointype=market,num=quantity)
-                self.dingding_warn(buy_info)
-                return res
+            print(res)
+            # if res['orderId']:
+            #     buy_info = "报警：币种为：{cointype}。开多买单量为：{num}".format(cointype=market,num=quantity)
+            #     self.dingding_warn(buy_info)
+            return res
         except BaseException as e:
-            error_info = "报警：币种为：{cointype},开多多单失败.api返回内容为:{reject}".format(cointype=market, reject=res['msg'])
+            error_info = "报警：币种为：{cointype},开多多单失败.api返回内容为:{reject}".format(cointype=market, reject='?')
 
     def do_sell_market_msg(self, market, quantity,profit_usdt=0):
         '''
@@ -91,12 +95,13 @@ class Message:
         '''
         try:
             res = BinanceAPI(api_key, api_secret).market_future_order("BUY", market, quantity, "SHORT")
-            if res['orderId']:
-                buy_info = "报警：币种为：{cointype}。网格做空卖单量为：{num}.".format(cointype=market,num=quantity)
-                self.dingding_warn(buy_info)
-                return res
+            print(res)
+            # if res['orderId']:
+            #     buy_info = "报警：币种为：{cointype}。开多买单量为：{num}".format(cointype=market,num=quantity)
+            #     self.dingding_warn(buy_info)
+            return res
         except BaseException as e:
-            error_info = "报警：币种为：{cointype},开多多单失败.api返回内容为:{reject}".format(cointype=market, reject=res['msg'])
+            error_info = "报警：币种为：{cointype},开多多单失败.api返回内容为:{reject}".format(cointype=market, reject='?')
 
 
     # def open_buy_limit_msg(self,market, quantity, price):
@@ -148,12 +153,13 @@ class Message:
         '''
         try:
             res = BinanceAPI(api_key,api_secret).limit_future_order('BUY', market, quantity,"SHORT", price)
-            if res['orderId']:
-                buy_info = "报警：币种为：{cointype}。做空卖单价为：{price}。数量为：{num}。".format(cointype=market,price=price,num=quantity)
-                self.dingding_warn(buy_info)
-                return res
+            print(res)
+            # if res['orderId']:
+            #     buy_info = "报警：币种为：{cointype}。开多买单量为：{num}".format(cointype=market,num=quantity)
+            #     self.dingding_warn(buy_info)
+            return res
         except BaseException as e:
-            error_info = "报警：币种为：{cointype},做空空单失败.api返回内容为:{reject}".format(cointype=market,reject=res['msg'])
+            error_info = "报警：币种为：{cointype},做空空单失败.api返回内容为:{reject}".format(cointype=market,reject='?')
             self.dingding_warn(error_info+str(res))
             return res
 
@@ -167,10 +173,11 @@ class Message:
         '''
         try:
             res = BinanceAPI(api_key,api_secret).buy_market(market, quantity)
-            if res['orderId']:
-                buy_info = "报警：币种为：{cointype}。买单量为：{num}".format(cointype=market,num=quantity)
-                self.dingding_warn(buy_info)
-                return res
+            print(res)
+            # if res['orderId']:
+            #     buy_info = "报警：币种为：{cointype}。开多买单量为：{num}".format(cointype=market,num=quantity)
+            #     self.dingding_warn(buy_info)
+            return res
         except BaseException as e:
             error_info = "报警：币种为：{cointype},买单失败.".format(cointype=market)
             self.dingding_warn(error_info)
@@ -186,10 +193,11 @@ class Message:
         '''
         try:
             res = BinanceAPI(api_key,api_secret).sell_market(market, quantity)
-            if res['orderId']:
-                buy_info = "报警：币种为：{cointype}。卖单量为：{num}".format(cointype=market,num=quantity)
-                self.dingding_warn(buy_info)
-                return res
+            print(res)
+            # if res['orderId']:
+            #     buy_info = "报警：币种为：{cointype}。开多买单量为：{num}".format(cointype=market,num=quantity)
+            #     self.dingding_warn(buy_info)
+            return res
         except BaseException as e:
             error_info = "报警：币种为：{cointype},卖单失败".format(cointype=market)
             self.dingding_warn(error_info)

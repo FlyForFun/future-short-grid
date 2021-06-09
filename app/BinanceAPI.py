@@ -4,7 +4,7 @@ import requests, time, hmac, hashlib,json,os
 # from app.authorization import recv_window,api_secret,api_key
 from app.authorization import dingding_token,recv_window,api_secret,api_key
 
-data_path = os.getcwd()+"/data/data.json"
+data_path = os.getcwd()+"\data\data.json"
 
 try:
     from urllib import urlencode
@@ -168,7 +168,7 @@ class BinanceAPI(object):
         query = urlencode(self._sign(params))
         url = "%s?%s" % (path, query)
         header = {"X-MBX-APIKEY": self.key}
-        res = requests.get(url, headers=header,timeout=30, verify=True).json()
+        res = requests.get(url, headers=header,timeout=30, verify=True, proxies={'http':'http://127.0.0.1:7890','https':'http://127.0.0.1:7890'}).json()
         if isinstance(res,dict):
             if 'code' in res:
                 error_info = "报警：请求异常.错误原因{info}".format( info=str(res))
@@ -203,7 +203,7 @@ class BinanceAPI(object):
         query = self._sign(params)
         url = "%s" % (path)
         header = {"X-MBX-APIKEY": self.key}
-        res = requests.post(url, headers=header, data=query, timeout=180, verify=True).json()
+        res = requests.post(url, headers=header, data=query, timeout=180, verify=True, proxies={'http':'http://127.0.0.1:7890','https':'http://127.0.0.1:7890'}).json()
 
         if isinstance(res,dict):
             if 'code' in res:
@@ -227,7 +227,7 @@ class BinanceAPI(object):
                 "content": text
             }
         }
-        requests.post(api_url, json.dumps(json_text), headers=headers).content
+        requests.post(api_url, json.dumps(json_text), headers=headers, proxies={'http':'http://127.0.0.1:7890','https':'http://127.0.0.1:7890'}).content
 
 
     def _format(self, price):

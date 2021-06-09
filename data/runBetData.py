@@ -3,11 +3,11 @@ from app.BinanceAPI import BinanceAPI
 from app.authorization import api_key,api_secret
 
 # linux
-data_path = os.getcwd()+"/data/data.json"
+# data_path = os.getcwd()+"/data/data.json"
 # 本地调试
 # data_path = os.getcwd()+""+"/data/data.json"
 # windows
-# data_path = os.getcwd() + "\data\data.json"
+data_path = os.getcwd() + "\data\data.json"
 binan = BinanceAPI(api_key,api_secret)
 class RunBetData:
 
@@ -149,8 +149,8 @@ class RunBetData:
 
         else: # 系数内震荡行情
 
-            data_json['config']['double_throw_ratio'] = 2 +self.get_future_step(symbol)/4
-            data_json['config']['profit_ratio'] = 2 + self.get_future_step(symbol)/4
+            data_json[symbol]['config']['double_throw_ratio'] = 2 +self.get_future_step(symbol)/4
+            data_json[symbol]['config']['profit_ratio'] = 2 + self.get_future_step(symbol)/4
         self._modify_json_data(data_json)
 
     def delete_extra_zero(self, n):
