@@ -178,7 +178,7 @@ class BinanceAPI(object):
     def _get_no_sign(self, path, params={}):
         query = urlencode(params)
         url = "%s?%s" % (path, query)
-        res = requests.get(url, timeout=180, verify=True).json()
+        res = requests.get(url, timeout=180, verify=True, proxies={'http':'http://127.0.0.1:7890','https':'http://127.0.0.1:7890'}).json()
         if isinstance(res, dict):
             if 'code' in res:
                 error_info = "报警：请求异常.错误原因{info}".format( info=str(res))

@@ -1,14 +1,11 @@
 {
     "coinList": [
-        "EOSUSDT",
-        "ONTUSDT",
-        "FILUSDT",
-        "DASHUSDT"
+        "ETHUSDT"
     ],
-    "EOSUSDT": {
+    "ETHUSDT": {
         "runBet": {
-            "future_buy_price": 5.082,
-            "future_sell_price": 4.48,
+            "future_buy_price": 2475.00,
+            "future_sell_price": 2227.50,
             "future_step": 0,
             "recorded_price": []
         },
@@ -16,52 +13,7 @@
             "profit_ratio": 5.5,
             "double_throw_ratio": 5,
             "future_quantity": [
-                3
-            ]
-        }
-    },
-    "ONTUSDT": {
-        "runBet": {
-            "future_buy_price": 1,
-            "future_sell_price": 0.9,
-            "future_step": 0,
-            "recorded_price": []
-        },
-        "config": {
-            "profit_ratio": 5.25,
-            "double_throw_ratio": 5.5,
-            "future_quantity": [
-                100
-            ]
-        }
-    },
-    "DASHUSDT": {
-        "runBet": {
-            "future_buy_price": 182,
-            "future_sell_price": 165,
-            "future_step": 0,
-            "recorded_price": []
-        },
-        "config": {
-            "profit_ratio": 5,
-            "double_throw_ratio": 5.5,
-            "future_quantity": [
-                1
-            ]
-        }
-    },
-    "FILUSDT": {
-        "runBet": {
-            "future_buy_price": 72,
-            "future_sell_price": 60,
-            "future_step": 0,
-            "recorded_price": []
-        },
-        "config": {
-            "profit_ratio": 5.25,
-            "double_throw_ratio": 5.5,
-            "future_quantity": [
-                2
+                0.005
             ]
         }
     }
